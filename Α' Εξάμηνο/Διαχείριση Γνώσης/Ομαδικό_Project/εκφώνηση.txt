@@ -68,3 +68,6 @@ Urgency) για αλλαγή
 Σύνοψη - Συμπεράσματα 
 	Θα αναφέρουμε που έγιναν καλά τα βήματα και που όχι, ποια διαδικασία παραλείπεται ή δεν υλοποιήθηκε πλήρως
 	
+Codification: Σύγκιρση _codification_08.pdf και _02_Codification_Project_new_mail_15_11_2019
+Project_CV: _04_documentation_Project_CVs_15_11_2019
+Απεκόνιση γνώσης: _05_KM_mapping_Knowledge_into_a_database_model(winter_2019)_ver03
