@@ -1,24 +1,76 @@
-Και πάρε και τα διαγράμματα 
+Naive Bayes
 
-Για το 5 διαγραμμα παρε τα R(ai|x) και για τα δυο
+P(C) or P(Class) 
+P(YES) = 9/14
+P(NO) = 5/14
+
+Κλάση
+x = {sunny, cool, strong, true}
+
+We will find probability that we can play the game
+P(Outlook=Sunny|Play=Yes) = 2/9
+P(Temperature=Cool|Play=Yes) = 3/9
+P(Humidity=High|Play=Yes)=3/9
+P(Wind=Strong|Play=Yes)=3/9
+P(Play=Yes) = 9/14
+
+Probability we cannot play the game 
+P(Outlook=Sunny|Play=No) = 3/5
+P(Temperature=Cool|Play=No) = 1/5
+P(Humidity=High|Play=No)=4/5
+P(Wind=Strong|Play=No)=3/5
+P(Play=No) = 5/14
+
+Multiply all
+P(X|C)P(C)
+P(x|Play=Yes)P(Play=Yes) = 0.0053
+P(x|Play=No)P(Play=No) = 0.0206 
+
+Divide both with P(X) to normalize
+P(X) = P(Outlook=Sunny)*P(Temperature=Cool)*P(Humidity=High)*P(Wind=Strong)
+P(X) = 0.02186
+
+P(Play=Yes|X)=0.0053/0.02186 = 0.2424
+P(Play=No|X) = 0.0206/0.02186 = 0.9421
+
+Answer is no 
 
 
-A2 θέωρημα του bayes
-λ = συνάρτηση κόστους
-λ(good |moderate) = 1 (a1,pr2)
-λ(moderate | good) = 3 (a2,pr1)
-Επειδή είναι σωστή ταξινόμηση = 0
-λ(good,good) = λ(moderate,moderate) =0
 
-pxc(:,1)/pxc(:,2) > Pc(1,2) *3/Pc(1,1)*1
+P(A|C) = P(C|A)*P(A) / P(C) 
 
-A3
-παίζουμε με τους αριθμούς των λ
+P(A|C) - posterior probabilty which represents the degree to which we believe a 
+given model accurately desribes the situation given the available data and all of our prior information
 
-A4
-Βρες την θέση του 7.4 στον πίνακα και κάνε νέο pcx
-find(x==7.4)
+P(C|A) Likelihood - which describes how well the model predicts the data 
 
-A5
-Priors = Pc 
-Δηλαδή το Α1 να γινει 6
+P(A) - prior probability - which describes the degree to which believe 
+the model accurately describes reality based on all of our prior information
+
+P(C) <-normalizing constant
+
+
+
+
+----------------------- Ergasia
+x = {yes, divorced, 100}
+
+DB = Yes
+P(Home Owner = Yes | DB = Yes) => P(DB = Yes | 
+=> P(DB = Yes | Home Owner = Yes) * P(Home Owner = Yes) / P(DB = Yes) =>
+=> 
+
+P(DB = Yes | Home Owner = Yes) = 100 (exei upologistei)	
+P(Home Owner = Yes) = 
+P(DB = Yes) = 3/10 = 0.3
+
+	
+	
+P(Marital = Divorced | DB = Yes)
+P(Annual Income = 100 | DB = Yes)
+
+DB = No
+P(Home Owner = Yes | DB = No)
+P(Marital = Divorced | DB = No)
+P(Annual Income = 100 | DB = No)
+
