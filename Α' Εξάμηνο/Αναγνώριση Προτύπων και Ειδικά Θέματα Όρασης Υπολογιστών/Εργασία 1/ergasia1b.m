@@ -23,7 +23,7 @@ fclose(fid);
 % Class names
 C={'No','Yes'};
 % Test sample
-T={'Yes','Divorced',100};
+T={'Yes','Divorced',85};
 
 
 % ===========================================================
@@ -85,6 +85,7 @@ fprintf('p(Owner=Yes|Class=Yes)=> p(%s|%s) = %d/%d = %0.4f\n',T{1},C{2},Nxc(1,2)
 Nxc(2,2)=sum(strcmpi(Status,T{2}) & strcmpi(Class,C{2}));
 pxc(2,2)=Nxc(2,2)/NC(2);
 fprintf('p(Status=Divorced|Class=Yes)=> p(%s|%s) = %d/%d = %0.4f\n',T{2},C{2},Nxc(2,2),NC(2),pxc(2,2));
+
 % Conditional probabilities p(Income=100|Class=Yes)
 idx=find(strcmpi(Class,C{2}));
 mu=mean(Income(idx));
@@ -133,11 +134,11 @@ px = p_owner_yes * p_status_divorced * p_income_100;
 % %Our goal is to build :
 % %p(X|Class=No) = p(Owner = Yes|Class=No) * p(Status=Divorced|Class=No) * p(Income=100|Class=No) 
 % %p(X|Class=No) = pxc(1,1) * pxc(2,1) * pxc(3,1)
-px_no = pxc(1,1) * pxc(2,1) * pxc(3,1);
-px_yes = pxc(1,2) * pxc(2,2) * pxc(3,2);
+px_no = prod(pxc(:,1));
+px_yes =prod(pxc(:,2));
 
 
-% %p(Class = No) = P(2)
+% %p(Class = No) = P(1)
 p_no_x = px_no * P(1);
 % %p(Class = Yes) = P(2)
 p_yes_x = px_yes * P(2);
@@ -146,7 +147,7 @@ fprintf('\n\t p(Class=Yes|X) = %.4f\n',p_yes_x);
 
 if(p_no_x > p_yes_x)
   fprintf('\n\t Sample x = {Yes,Divorced,100}, belongs to p(Class=No) \n');
-else
+elseif(p_no_x < p_yes_x)
   fprintf('\n\t Sample x = {Yes,Divorced,100}, belongs to p(Class=Yes) \n');
 end
 
@@ -185,11 +186,11 @@ pxc(2,2)=Nxc(2,2)/NC_Yes_laplacian;
 
 fprintf('\n\t For Laplacian smoothing = %g\n',m);
 % %Calculating p(Class=No|X) with Laplacian smoothing
-px_no_laplace = pxc(1,1) * pxc(2,1) * pxc(3,1);
+px_no_laplace = prod(pxc(:,1));
 p_no_x_laplace = px_no_laplace * P(1);
 
 % %Calculating p(Class=Yes|X) with Laplacian smoothing
-px_yes_laplace = pxc(1,2) * pxc(2,2) * pxc(3,2);
+px_yes_laplace = prod(pxc(:,2));
 p_yes_x_laplace = px_yes_laplace * P(2);
 
 fprintf('\n\t p(Class=No|X) = %0.4f\n',p_no_x_laplace);
@@ -202,19 +203,13 @@ else
 end
 
 
-
-
-
-
-
-
 % ----- Question 5 -----
 fprintf('\n----- Question 5 -----\n');
 
 
 % %Calculating new pxc
 % %Laplacian smoothing
-m = 10000;
+m = 100;
 
 % Conditional probabilities p(Owner=Yes|Class=No) with Laplacian smoothing
 Nxc(1,1)=sum(strcmpi(Owner,T{1}) & strcmpi(Class,C{1}));
@@ -242,11 +237,11 @@ pxc(2,2)=Nxc(2,2)/NC_Yes_laplacian;
 
 fprintf('\n\t For Laplacian smoothing = %g\n',m);
 % %Calculating p(Class=No|X) with Laplacian smoothing
-px_no_laplace = pxc(1,1) * pxc(2,1) * pxc(3,1);
+px_no_laplace = prod(pxc(:,1));
 p_no_x_laplace = px_no_laplace * P(1);
 
 % %Calculating p(Class=Yes|X) with Laplacian smoothing
-px_yes_laplace = pxc(1,2) * pxc(2,2) * pxc(3,2);
+px_yes_laplace = prod(pxc(:,2));
 p_yes_x_laplace = px_yes_laplace * P(2);
 
 fprintf('\n\t p(Class=No|X) = %0.4f\n',p_no_x_laplace);
@@ -259,6 +254,76 @@ else
 end
 
 
+% ----- Question 6 -----
+fprintf('\n----- Question 6 -----\n');
+
+fid_yes=fopen('b6_yes.txt','w');
+fid_no=fopen('b6_no.txt','w');
+
+
+for m=1:100
+   for i=1:length(Income)
+       % Conditional probabilities p(Owner=Yes|Class=No) with Laplacian smoothing
+        Nxc(1,1)=sum(strcmpi(Owner,T{1}) & strcmpi(Class,C{1}));
+        Nxc(1,1) = Nxc(1,1) + m;
+        NC_No_laplacian = NC(1) + 2*m;
+        pxc(1,1)=Nxc(1,1)/NC_No_laplacian;
+        % Conditional probabilities p(Status=Divorced|Class=No) with Laplacian smoothing
+        Nxc(2,1)=sum(strcmpi(Status,T{2}) & strcmpi(Class,C{1}));
+        Nxc(2,1) = Nxc(2,1) + m;
+        NC_No_laplacian1 = NC(1) + 3*m;
+        pxc(2,1)=Nxc(2,1)/NC_No_laplacian1;
+
+
+        % Conditional probabilities p(Owner=Yes|Class=Yes) with Laplacian smoothing
+        Nxc(1,2)=sum(strcmpi(Owner,T{1}) & strcmpi(Class,C{2}));
+        Nxc(1,2) = Nxc(1,2) + m;
+        NC_Yes_laplacian = NC(2) + 2*m;
+        pxc(1,2)=Nxc(1,2)/NC_Yes_laplacian;
+        % Conditional probabilities p(Status=Divorced|Class=Yes) with Laplacian smoothing
+        Nxc(2,2)=sum(strcmpi(Status,T{2}) & strcmpi(Class,C{2}));
+        Nxc(2,2) = Nxc(2,2) + m;
+        NC_Yes_laplacian1 = NC(2) + 3*m;
+        pxc(2,2)=Nxc(2,2)/NC_Yes_laplacian1;
+
+        %Calculating new Conditional probability for Income
+        idx=find(strcmpi(Class,C{1}));
+        mu=mean(Income(idx));
+        sdev=std(Income(idx));
+        pxc(3,1)=normpdf(Income(i),mu,sdev);
+        
+        idx=find(strcmpi(Class,C{2}));
+        mu=mean(Income(idx));
+        sdev=std(Income(idx));
+        pxc(3,2)=normpdf(Income(i),mu,sdev);
+        
+        
+        
+        % %Calculating p(Class=No|X) with Laplacian smoothing
+        px_no_laplace = prod(pxc(:,1));
+        p_no_x_laplace = px_no_laplace * P(1);
+
+        % %Calculating p(Class=Yes|X) with Laplacian smoothing
+        px_yes_laplace = prod(pxc(:,2));
+        p_yes_x_laplace = px_yes_laplace * P(2);
+        
+     
+        if(p_no_x_laplace > p_yes_x_laplace)
+          fprintf(fid_no,'\n\t Laplacian smoothing = %g: \n\t\tSample x = {Yes,Divorced,%g}, belongs to p(Class=No) \n', m, Income(i));
+          fprintf(fid_no,'\n\t p(Class=No|X) = %g\n',p_no_x_laplace);
+          fprintf(fid_no,'\n\t p(Class=Yes|X) = %g\n',p_yes_x_laplace);
+          fprintf(fid_no,'\n\t -------------------------------------------\n');
+        elseif(p_no_x_laplace < p_yes_x_laplace)
+          fprintf(fid_yes,'\n\t Laplacian smoothing = %g: \n\t\tSample x = {Yes,Divorced,%g}, belongs to p(Class=Yes) \n', m, Income(i));  
+          fprintf(fid_yes,'\n\t p(Class=No|X) = %g\n',p_no_x_laplace);
+          fprintf(fid_yes,'\n\t p(Class=Yes|X) = %g\n',p_yes_x_laplace);
+          fprintf(fid_yes,'\n\t -------------------------------------------\n');
+        end
+   end     
+end
+
+
+fclose(fid);
 
 
 
