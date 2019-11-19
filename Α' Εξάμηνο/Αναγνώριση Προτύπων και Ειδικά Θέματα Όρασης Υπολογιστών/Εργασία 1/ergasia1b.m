@@ -262,7 +262,7 @@ fid_no=fopen('b6_no.txt','w');
 
 
 for m=1:100
-   for i=1:length(Income)
+   for new_T_3=1:125
        % Conditional probabilities p(Owner=Yes|Class=No) with Laplacian smoothing
         Nxc(1,1)=sum(strcmpi(Owner,T{1}) & strcmpi(Class,C{1}));
         Nxc(1,1) = Nxc(1,1) + m;
@@ -290,12 +290,12 @@ for m=1:100
         idx=find(strcmpi(Class,C{1}));
         mu=mean(Income(idx));
         sdev=std(Income(idx));
-        pxc(3,1)=normpdf(Income(i),mu,sdev);
+        pxc(3,1)=normpdf(new_T_3,mu,sdev);
         
         idx=find(strcmpi(Class,C{2}));
         mu=mean(Income(idx));
         sdev=std(Income(idx));
-        pxc(3,2)=normpdf(Income(i),mu,sdev);
+        pxc(3,2)=normpdf(new_T_3,mu,sdev);
         
         
         
@@ -309,12 +309,12 @@ for m=1:100
         
      
         if(p_no_x_laplace > p_yes_x_laplace)
-          fprintf(fid_no,'\n\t Laplacian smoothing = %g: \n\t\tSample x = {Yes,Divorced,%g}, belongs to p(Class=No) \n', m, Income(i));
+          fprintf(fid_no,'\n\t Laplacian smoothing = %g: \n\t\tSample x = {Yes,Divorced,%g}, belongs to p(Class=No) \n', m, new_T_3);
           fprintf(fid_no,'\n\t p(Class=No|X) = %g\n',p_no_x_laplace);
           fprintf(fid_no,'\n\t p(Class=Yes|X) = %g\n',p_yes_x_laplace);
           fprintf(fid_no,'\n\t -------------------------------------------\n');
         elseif(p_no_x_laplace < p_yes_x_laplace)
-          fprintf(fid_yes,'\n\t Laplacian smoothing = %g: \n\t\tSample x = {Yes,Divorced,%g}, belongs to p(Class=Yes) \n', m, Income(i));  
+          fprintf(fid_yes,'\n\t Laplacian smoothing = %g: \n\t\tSample x = {Yes,Divorced,%g}, belongs to p(Class=Yes) \n', m, new_T_3);  
           fprintf(fid_yes,'\n\t p(Class=No|X) = %g\n',p_no_x_laplace);
           fprintf(fid_yes,'\n\t p(Class=Yes|X) = %g\n',p_yes_x_laplace);
           fprintf(fid_yes,'\n\t -------------------------------------------\n');
