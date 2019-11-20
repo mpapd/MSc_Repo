@@ -325,6 +325,13 @@ end
 
 fclose(fid);
 
+fprintf('\n\t View the results on b6_no.txt and b6_yes.txt\n');
+fprintf('\n\t For Income = 81:\n\t\tWhen m=[1,2], X sample belongs to p(Class=No)\n\n\t\tWhen m >= 3, X sample belongs to p(Class=Yes)\n');
+fprintf('\n\t For Income = 98:\n\t\tWhen m=1, X sample belongs to p(Class=No)\n\n\t\tWhen m >= 2, X sample belongs to p(Class=Yes)\n');
+
+
+
+
 
 
 
