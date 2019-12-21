@@ -1,0 +1,25 @@
+-users
+user_id (PK), username, email, name, firstname, lastname, fathername, mothername,  birthdate,  ethnicity, town, district, street, phone, AFM, AMKA
+
+
+-applicants 
+applicant_id (PK), firstname, lastname, class, foreign_language1, foreign_language2, optional_class1, optional_class2, previous_school, previous_year
+
+    *class = πάντα για Α λυκείου
+    *foreign_language1, foreign_language2 = Σειρά προτίμησης ξένης γλώσσας
+    * optional_class1, optional_class2 = Σειρά προτίμησης μαθήματος επιλογής
+
+-school_types 
+school_type_id (PK), type 
+
+-categories 
+category_id (PK), category 
+
+    *ημερήσιο / εσπερινό
+
+-schools
+school_id, school_type_id (FK), town, district, street, phone 
+
+-applications
+application_id (PK), user_id (FK), applicant_id (FK), school_id (FK), date 
+
