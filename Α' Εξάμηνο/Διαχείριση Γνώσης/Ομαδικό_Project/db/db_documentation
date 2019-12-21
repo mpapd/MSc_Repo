@@ -1,3 +1,5 @@
+DB name : eregister_education
+
 -users
 user_id (PK), username, email, name, firstname, lastname, fathername, mothername,  birthdate,  ethnicity, town, district, street, phone, AFM, AMKA
 
