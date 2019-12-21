@@ -1,11 +1,11 @@
 DB name : eregister_education
 
 -users
-user_id (PK), username, email, name, firstname, lastname, fathername, mothername,  birthdate,  ethnicity, town, district, street, phone, AFM, AMKA
+user_id (PK), username, email, password, name, firstname, lastname, fathername, mothername,  birthdate,  ethnicity, town, district, street, phone, AFM, AMKA
 
 
 -applicants 
-applicant_id (PK), firstname, lastname, class, foreign_language1, foreign_language2, optional_class1, optional_class2, previous_school, previous_year
+applicant_id (PK), firstname, lastname, birthdate, fathername, mothername, town, district, street, class, foreign_language1, foreign_language2, optional_class1, optional_class2, previous_school, previous_year
 
     *class = πάντα για Α λυκείου
     *foreign_language1, foreign_language2 = Σειρά προτίμησης ξένης γλώσσας
@@ -20,7 +20,7 @@ category_id (PK), category
     *ημερήσιο / εσπερινό
 
 -schools
-school_id, school_type_id (FK), town, district, street, phone 
+school_id, school_type_id (FK), category_id(FK), town, district, street, phone 
 
 -applications
 application_id (PK), user_id (FK), applicant_id (FK), school_id (FK), date 
