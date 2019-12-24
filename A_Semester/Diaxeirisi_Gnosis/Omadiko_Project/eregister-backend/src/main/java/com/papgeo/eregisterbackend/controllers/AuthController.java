@@ -40,7 +40,7 @@ public class AuthController {
         try{
             UserEntity user = userRepository.findByUsernameAuth(loginRequest.getUsername());
             if(user==null){
-                user = userRepository.findByEmail(loginRequest.getUsername());
+                user = userRepository.findByEmail(loginRequest.getEmail());
             }
 
             Authentication authentication = authenticationManager.authenticate(
@@ -55,7 +55,7 @@ public class AuthController {
             return ResponseEntity.ok(new JwtResponse(jwt));
 
         }catch(Exception e){
-            return ResponseEntity.ok(e);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
 

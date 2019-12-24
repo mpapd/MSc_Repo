@@ -1,0 +1,34 @@
+* POST /api/auth/login
+    user login 
+
+* GET /towns/{town}/{district}
+    returns list of available districts
+
+* GET /schools/{town}/{district}?category={category}
+    returns list with schools for this district 
+
+
+* GET /schools/{town}?type={school_type}
+    returns list with music/athletic schools of the given town
+
+
+* POST /application
+    request body will contain:
+        -firstname
+        -lastname
+        -fathername
+        -mothername
+        -birthdate
+        -town
+        -district 
+        -street
+        -class
+        -foreign_language1
+        -foreign_language2
+        -optional_class1 
+        -optional_class2
+
+    first it will save to applicants and then on application 
+
+* GET /applications
+returns applications of the logged user
