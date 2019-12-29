@@ -2,8 +2,7 @@
 
 # dependencies
 /node_modules
-/src/_keys
-
+.env
 # testing
 /coverage
 
