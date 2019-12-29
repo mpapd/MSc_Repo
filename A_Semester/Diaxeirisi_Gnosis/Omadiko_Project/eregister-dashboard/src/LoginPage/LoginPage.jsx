@@ -17,19 +17,16 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div>
-                <div className="alert alert-info">
-                    Username: test<br />
-                    Password: test
-                </div>
-                <h2>Login</h2>
+                <h2>Ηλεκτρονική εγγραφή μαθητών</h2><br></br>
+                <h3>Σύνδεση</h3>
                 <Formik
                     initialValues={{
                         username: '',
                         password: ''
                     }}
                     validationSchema={Yup.object().shape({
-                        username: Yup.string().required('Username is required'),
-                        password: Yup.string().required('Password is required')
+                        username: Yup.string().required('Απαιτείται όνομα χρήστη ή email'),
+                        password: Yup.string().required('Απαιτείται κωδικός')
                     })}
                     onSubmit={({ username, password }, { setStatus, setSubmitting }) => {
                         setStatus();
@@ -48,12 +45,12 @@ class LoginPage extends React.Component {
                     render={({ errors, status, touched, isSubmitting }) => (
                         <Form>
                             <div className="form-group">
-                                <label htmlFor="username">Username</label>
+                                <label htmlFor="username">Όνομα Χρήστη</label>
                                 <Field name="username" type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} />
                                 <ErrorMessage name="username" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor="password">Κωδικός</label>
                                 <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                                 <ErrorMessage name="password" component="div" className="invalid-feedback" />
                             </div>
