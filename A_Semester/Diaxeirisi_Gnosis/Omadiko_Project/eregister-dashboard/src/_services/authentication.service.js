@@ -17,7 +17,7 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`http://eregister-backend.herokuapp.com/api/auth/login`, requestOptions)
+    return fetch(`https://eregister-backend.herokuapp.com/api/auth/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
