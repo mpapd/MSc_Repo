@@ -6,6 +6,9 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Checkbox from '@material-ui/core/Checkbox';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
 const theme = createMuiTheme();
 function searchDistrictEng(nameKey, myArray){
@@ -15,6 +18,8 @@ function searchDistrictEng(nameKey, myArray){
       }
   }
 }
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 export class FormUserDetails extends Component {
 
@@ -33,8 +38,10 @@ export class FormUserDetails extends Component {
     else{
       //Setting english names
       var resultObject = searchDistrictEng(this.props.values.district, towns);
-      this.props.handleEnglish('townEng', resultObject.townEng);
-      this.props.handleEnglish('districtEng', resultObject.districtEng);
+      this.props.handler('townEng', resultObject.townEng);
+      this.props.handler('town', resultObject.town);
+      this.props.handler('districtEng', resultObject.districtEng);
+      this.props.handler('district', resultObject.district);
       this.props.nextStep();
     }
     
@@ -62,7 +69,6 @@ export class FormUserDetails extends Component {
               margin="normal"
 							fullWidth={true}
             />
-            <br />
             <TextField
               placeholder="Εισάγετε το επώνυμο"
               label="Επώνυμο"
@@ -84,7 +90,7 @@ export class FormUserDetails extends Component {
                 shrink: true,
               }}
             />
-            <br />
+
             <TextField
               placeholder="Εισάγετε όνομα πατρός"
               label="Όνομα πατρός"
@@ -93,7 +99,7 @@ export class FormUserDetails extends Component {
               margin="normal"
 							fullWidth={true}
             />
-            <br />
+
             <TextField
               placeholder="Εισάγετε όνομα μητρός"
               label="Όνομα μητρός"
@@ -102,8 +108,7 @@ export class FormUserDetails extends Component {
               margin="normal"
 							fullWidth={true}
             />
-            <br />
-            <br />
+
             <Autocomplete
               id="combo-district"
               groupBy={option => option.town}
@@ -119,8 +124,15 @@ export class FormUserDetails extends Component {
               />
               )}
             />
-          
-            <br />
+            <TextField
+              placeholder="Εισάγετε οδό"
+              label="Οδός"
+              onChange={handleChange('street')}
+              defaultValue={values.street}
+              margin="normal"
+							fullWidth={true}
+            />
+        
             <br />
             <Autocomplete
               id="combo-schooltype"
@@ -136,9 +148,42 @@ export class FormUserDetails extends Component {
               />
               )}
             />
-          
-            <br />
-            <br />
+          <br />
+          <Autocomplete
+            multiple
+            id="tags-foreignLanguages"
+            options={foreignLanguages}
+            getOptionLabel={option => option.language}
+            filterSelectedOptions
+            onChange={handleChange('foreignLanguage')}    
+            renderInput={params => (
+              <TextField
+                {...params}
+                variant="outlined"
+                label="Ξένες Γλώσσες"
+                placeholder="Επιλέξτε ξένες γλώσσες"
+                fullWidth={true} 
+              />
+            )}
+          />
+          <br />
+          <Autocomplete
+            multiple
+            id="tags-optionalClasses"
+            options={optionalClasses}
+            getOptionLabel={option => option.optionalClass}
+            filterSelectedOptions
+            onChange={handleChange('optionalClass')}    
+            renderInput={params => (
+              <TextField
+                {...params}
+                variant="outlined"
+                label="Μαθήματα Επιλογής"
+                placeholder="Επιλέξτε μαθήματα επιλογής"
+                fullWidth={true} 
+              />
+            )}
+          />
             <TextField
               placeholder="Εισάγετε σχόλια"
               label="Σχόλια"
@@ -180,4 +225,16 @@ const schoolType = [
   { type: 'Μουσικό Λύκειο', schoolTypeId : 2},
   { type: 'Αθλητικό Λύκειο', schoolTypeId : 3},
   
+];
+
+const foreignLanguages = [
+  { language: 'Γερμανικά'},
+  { language: 'Γαλλικά'},
+];
+
+const optionalClasses = [
+  { optionalClass: 'Εικαστικά'},
+  { optionalClass: 'Εφαρμογές Πληροφορικής'},
+  { optionalClass: 'Γεωολογία και Διαχείριση Φυσικών Πόρων'},
+  { optionalClass: 'Στοιχεία Θεατρολογίας'},
 ];
