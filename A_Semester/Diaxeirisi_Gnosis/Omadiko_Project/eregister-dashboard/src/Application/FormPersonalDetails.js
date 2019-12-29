@@ -20,8 +20,6 @@ function searchSchool(nameKey, myArray){
 
 export class FormPersonalDetails extends Component {
   
-  
-
 constructor(props) {
   super(props);
 
@@ -70,6 +68,7 @@ constructor(props) {
         this.setState({schoolInfo: ''});  
       }else{ 
         this.setState({schoolInfo: resultObject});
+        this.props.handleSchoolId('schoolId', resultObject);
       }
       
     }
@@ -157,7 +156,11 @@ constructor(props) {
                                         
                             </div> 
                             <div>
-                              <MapComponent />
+                              <MapComponent 
+                                district={this.state.schoolInfo.district}
+                                town={this.state.schoolInfo.town}
+                                street={this.state.schoolInfo.street}
+                              />
                             </div>
                             <br />   <br /> <br /> <br />  <br /><br /> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                             
