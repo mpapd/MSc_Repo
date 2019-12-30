@@ -119,12 +119,14 @@ class Application extends React.Component {
         switch (step) {
           case 1:
             return (
-              <FormUserDetails
+              <div>
+               <FormUserDetails
                 nextStep={this.nextStep}
-                handleChange={this.handleChange}
-                handler={this.handler}
-                values={values}
-              />
+                 handleChange={this.handleChange}
+                 handler={this.handler}
+                 values={values}
+               />
+              </div>
             );
           case 2:
             return (

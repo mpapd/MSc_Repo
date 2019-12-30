@@ -32,7 +32,8 @@ class HomePage extends React.Component {
 
         return (
             <div>
-                <h3>Οι αιτήσεις μου</h3><br></br>
+                <h3>Οι αιτήσεις μου</h3>
+                <br></br>
                 
                 <div>
                     {(this.state.applications !== null 
@@ -68,7 +69,7 @@ class HomePage extends React.Component {
                                     </tr>
                                     <tr>
                                         <th scope="row">ΗΜ. Γέννησης</th>
-                                        <td>{application.applicantDetails.birthdate}</td>
+                                        <td>{application.applicantDetails.birthdate.split("T")[0]}</td>
                                     
                                     </tr>
                                     <tr>
@@ -98,17 +99,17 @@ class HomePage extends React.Component {
                                     </tr>
                                     <tr>
                                         <th scope="row">Γλώσσες Επιλογής</th>
-                                        <td>{application.applicantDetails.foreignLanguage1}, {application.applicantDetails.foreignLanguage2}</td>
+                                        <td>{application.applicantDetails.foreignLanguage1} <br></br> {application.applicantDetails.foreignLanguage2}</td>
                                     
                                     </tr>
                                     <tr>
                                         <th scope="row">Μαθήματα Επιλογής</th>
-                                        <td>{application.applicantDetails.optionalClass1}, {application.applicantDetails.optionalClass2}</td>
+                                        <td>{application.applicantDetails.optionalClass1} <br></br> {application.applicantDetails.optionalClass2}</td>
                                     
                                     </tr>
                                     <tr>
                                         <th scope="row">Ημερομηνία Αίτησης</th>
-                                        <td>{application.date}</td>
+                                        <td>{application.date.split("T")[0]}</td>
                                     
                                     </tr>
                                     </tbody>
