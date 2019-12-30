@@ -7,6 +7,7 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import { userService } from '../_services';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import MapComponent from '../Map/MapComponent';
+import { ButtonToolbar  } from 'reactstrap';
 const theme = createMuiTheme();
 
 function searchSchool(nameKey, myArray){
@@ -84,11 +85,11 @@ constructor(props) {
         
         {(this.state.schools !== null)?(
               <div>
-        <Dialog 
+        {/* <Dialog 
             open={true}
             fullWidth={true}
             maxWidth='sm'
-          >
+          > */}
             
             <div><h4>Επιλέξτε {this.props.values.schoolType}</h4></div>
             <br />
@@ -171,21 +172,29 @@ constructor(props) {
                   
                 <br />                
                 <br />
-                <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={this.continue}
+                <ButtonToolbar>
+                  <Button
+                      color="secondary"
+                      variant="contained"
+                      onClick={this.back}
+                      size="lg"
+                  >ΠΙΣΩ</Button>
                   
-                >ΕΠΟΜΕΝΟ</Button>
-                <Button
-                  color="secondary"
-                  variant="contained"
-                  onClick={this.back}
-                >ΠΙΣΩ</Button>
+                  <Button
+                    variant="link"
+                    disabled
+                  ></Button>
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    onClick={this.continue}
+                    size="lg"
+                  >Επομενο</Button>             
+              </ButtonToolbar>
 
                 
             
-          </Dialog>
+          {/* </Dialog> */}
           </div>
           ): ''}  
         </React.Fragment>

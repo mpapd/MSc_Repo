@@ -6,6 +6,7 @@ import { List, ListItem, ListItemText } from '@material-ui/core/';
 import Button from '@material-ui/core/Button';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import { userService } from '../_services';
+import { ButtonToolbar  } from 'reactstrap';
 
 const theme = createMuiTheme();
 
@@ -36,11 +37,11 @@ export class Confirm extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <React.Fragment>
-          <Dialog
+          {/* <Dialog
             open={true}
             fullWidth={true}
             maxWidth='sm'
-          >
+          > */}
           <div><h3>Σύνοψη Στοιχείων Αιτούμενου</h3></div>
             <br />
           <List>
@@ -84,18 +85,26 @@ export class Confirm extends Component {
           </List>
           <br />
         
-          <Button
-            color="secondary"
-            variant="contained"
-            onClick={this.back}
-          >ΠΙΣΩ</Button>
-
-          <Button
-            color="primary"
-            variant="contained"
-            onClick={this.continue}
-          >ΕΠΙΒΕΒΑΙΩΣΗ</Button>
-          </Dialog>
+          <ButtonToolbar>
+              <Button
+                  color="secondary"
+                  variant="contained"
+                  onClick={this.back}
+                  size="lg"
+              >ΠΙΣΩ</Button>
+              
+              <Button
+                variant="link"
+                disabled
+              ></Button>
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={this.continue}
+                size="lg"
+              >Επομενο</Button>             
+            </ButtonToolbar>
+          {/* </Dialog> */}
         </React.Fragment>
       </MuiThemeProvider>
     );

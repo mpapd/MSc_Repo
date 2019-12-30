@@ -4,11 +4,13 @@ import AppBar from '@material-ui/core/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { ButtonToolbar  } from 'reactstrap';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import { history } from '../_helpers';
 
 const theme = createMuiTheme();
 function searchDistrictEng(nameKey, myArray){
@@ -47,17 +49,20 @@ export class FormUserDetails extends Component {
     
   };
   
+  back = e => {
+    history.push('/');
+  };
 
   render() {
     const { values, handleChange } = this.props;
     return (
       <MuiThemeProvider theme={theme} >
         <React.Fragment>
-          <Dialog 
-            open={true}
+          {/* <Dialog  */}
+            {/* open={true}
             fullWidth={true}
             maxWidth='sm'
-          >
+          > */}
             <div><h3>Εισαγωγή Στοιχείων Αιτούμενου</h3></div>
             <br />
             
@@ -107,7 +112,8 @@ export class FormUserDetails extends Component {
               defaultValue={values.mothername}
               margin="normal"
 							fullWidth={true}
-            />
+            /><br></br>
+            <br></br>
 
             <Autocomplete
               id="combo-district"
@@ -132,8 +138,8 @@ export class FormUserDetails extends Component {
               margin="normal"
 							fullWidth={true}
             />
-        
-            <br />
+
+            <br /><br />
             <Autocomplete
               id="combo-schooltype"
               options={schoolType}
@@ -184,6 +190,7 @@ export class FormUserDetails extends Component {
               />
             )}
           />
+                
             <TextField
               placeholder="Εισάγετε σχόλια"
               label="Σχόλια"
@@ -194,14 +201,28 @@ export class FormUserDetails extends Component {
               multiline={true}
               rows={2}
               rowsMax={4}
-            />
+            /><br />
             <br />
-            <Button
-              color="primary"
-              variant="contained"
-              onClick={this.continue}
-            >Επομενο</Button>
-          </Dialog>
+            <ButtonToolbar>
+              <Button
+                  color="secondary"
+                  variant="contained"
+                  onClick={this.back}
+                  size="lg"
+              >ΠΙΣΩ</Button>
+              
+              <Button
+                variant="link"
+                disabled
+              ></Button>
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={this.continue}
+                size="lg"
+              >Επομενο</Button>             
+              </ButtonToolbar>
+          {/* </Dialog> */}
         </React.Fragment>
       </MuiThemeProvider>
     );

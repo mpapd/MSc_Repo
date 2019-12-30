@@ -61,6 +61,7 @@
     "react-router-dom": "^5.1.2",
     "react-table": "^7.0.0-rc.15",
     "react-tabs": "^3.1.0",
+    "reactstrap": "^8.2.0",
     "resolve": "1.6.0",
     "rxjs": "^6.5.3",
     "style-loader": "0.19.0",
