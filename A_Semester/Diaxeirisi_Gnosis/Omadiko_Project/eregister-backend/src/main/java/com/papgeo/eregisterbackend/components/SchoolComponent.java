@@ -1,6 +1,7 @@
 package com.papgeo.eregisterbackend.components;
 
 import com.papgeo.eregisterbackend.entities.SchoolEntity;
+import com.papgeo.eregisterbackend.entities.SchoolTypeEntity;
 import com.papgeo.eregisterbackend.repositories.CategoryRepository;
 import com.papgeo.eregisterbackend.repositories.SchoolRepository;
 import com.papgeo.eregisterbackend.repositories.SchoolTypeRepository;
@@ -22,13 +23,14 @@ public class SchoolComponent {
     private SchoolTypeRepository schoolTypeRepository;
 
     public List<SchoolEntity> getSchoolsByCategoryAndDistrict(String town, String district, Integer categoryId){
-        return schoolRepository.findByCategoriesByCategoryIdAndDistrictEngAndTownEng(categoryRepository.findByCategoryId(categoryId), district, town);
+        return schoolRepository.findByCategoriesByCategoryIdAndDistrictEngAndTownEngAndSchoolTypesBySchoolTypeId(categoryRepository.findByCategoryId(categoryId), district, town,schoolTypeRepository.findBySchoolTypeId(1));
     }
 
     public List<SchoolEntity> getSpecialSchoolsByTown(Integer school_type_id, String town){
         return schoolRepository.findBySchoolTypesBySchoolTypeIdAndTownEng(schoolTypeRepository.findBySchoolTypeId(school_type_id),town);
 
     }
+
 
 
 }
