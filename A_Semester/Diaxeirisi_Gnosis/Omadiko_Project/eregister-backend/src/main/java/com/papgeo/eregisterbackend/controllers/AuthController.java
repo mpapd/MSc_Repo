@@ -36,7 +36,6 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody UserDAO loginRequest) {
-
         try{
             UserEntity user = userRepository.findByUsernameAuth(loginRequest.getUsername());
             if(user==null){

@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public interface SchoolRepository extends JpaRepository<SchoolEntity, Integer> {
     List<SchoolEntity> findByCategoriesByCategoryIdAndDistrictEngAndTownEng(CategoryEntity categoryEntity, String districtEng, String town);
+    List<SchoolEntity> findByCategoriesByCategoryIdAndDistrictEngAndTownEngAndSchoolTypesBySchoolTypeId(CategoryEntity categoryEntity, String districtEng, String town,SchoolTypeEntity schoolTypeEntity);
     List<SchoolEntity> findBySchoolTypesBySchoolTypeIdAndTownEng(SchoolTypeEntity schoolTypeEntity, String town);
     SchoolEntity findBySchoolId(Integer schoolId);
 }
