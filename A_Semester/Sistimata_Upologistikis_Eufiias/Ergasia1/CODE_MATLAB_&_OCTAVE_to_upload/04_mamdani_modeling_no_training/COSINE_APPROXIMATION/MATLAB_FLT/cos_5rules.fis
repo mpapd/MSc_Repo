@@ -1,0 +1,37 @@
+[System]
+Name='cos_5rules'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[0 360]
+NumMFs=5
+MF1='A1':'trimf',[-90 -8.882e-16 90]
+MF2='A2':'trimf',[0 90 180]
+MF3='A3':'trimf',[90 180 270]
+MF4='A4':'trimf',[180 270 360]
+MF5='A5':'trimf',[270 360 450]
+
+[Output1]
+Name='output1'
+Range=[-5 5]
+NumMFs=3
+MF1='NL':'trimf',[-9 -5 -1]
+MF2='ZE':'trimf',[-4 0 4]
+MF3='PL':'trimf',[0.987878787878788 4.98787878787879 8.98787878787879]
+
+[Rules]
+1, 3 (1) : 1
+2, 2 (1) : 1
+3, 1 (1) : 1
+5, 3 (1) : 1
+4, 2 (1) : 1

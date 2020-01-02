@@ -1,0 +1,37 @@
+[System]
+Name='cos_5rules_gaussMF'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[0 360]
+NumMFs=5
+MF1='A1':'gaussmf',[38.22 -1.776e-15]
+MF2='A2':'gaussmf',[38.22 90]
+MF3='A3':'gaussmf',[38.22 180]
+MF4='A4':'gaussmf',[38.22 270]
+MF5='A5':'gaussmf',[38.22 360]
+
+[Output1]
+Name='output1'
+Range=[-5 5]
+NumMFs=3
+MF1='NL':'gaussmf',[1.699 -5]
+MF2='ZE':'gaussmf',[1.699 0]
+MF3='PL':'gaussmf',[1.699 4.988]
+
+[Rules]
+1, 3 (1) : 1
+2, 2 (1) : 1
+3, 1 (1) : 1
+5, 3 (1) : 1
+4, 2 (1) : 1
