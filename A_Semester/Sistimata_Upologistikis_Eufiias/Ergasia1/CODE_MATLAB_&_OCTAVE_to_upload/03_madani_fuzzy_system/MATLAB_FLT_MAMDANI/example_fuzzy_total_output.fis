@@ -1,0 +1,37 @@
+[System]
+Name='example_fuzzy_total_output'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=2
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[0 3]
+NumMFs=2
+MF1='A1':'trimf',[0 0.9997 2]
+MF2='A2':'trimf',[0.9997 1.8 3]
+
+[Input2]
+Name='input2'
+Range=[0 200]
+NumMFs=2
+MF1='B1':'trimf',[0 100 200]
+MF2='B2':'trimf',[80 160 260]
+
+[Output1]
+Name='output1'
+Range=[0 4]
+NumMFs=2
+MF1='C1':'trimf',[0 0 4]
+MF2='C2':'trimf',[0 4 4]
+
+[Rules]
+1 1, 1 (1) : 1
+2 2, 2 (1) : 1

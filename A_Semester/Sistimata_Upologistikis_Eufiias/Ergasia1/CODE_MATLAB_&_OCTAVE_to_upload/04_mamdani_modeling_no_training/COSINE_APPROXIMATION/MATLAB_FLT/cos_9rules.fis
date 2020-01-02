@@ -1,0 +1,47 @@
+[System]
+Name='cos_fis'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[0 360]
+NumMFs=9
+MF1='mf1':'trimf',[-45 -4.441e-016 45]
+MF2='mf2':'trimf',[0 45 90]
+MF3='mf3':'trimf',[45 90 135]
+MF4='mf4':'trimf',[90 135 180]
+MF5='mf5':'trimf',[135 180 225]
+MF6='mf6':'trimf',[180 225 270]
+MF7='mf7':'trimf',[225 270 315]
+MF8='mf8':'trimf',[270 315 360]
+MF9='mf9':'trimf',[315 360 405]
+
+[Output1]
+Name='output1'
+Range=[-5 5]
+NumMFs=5
+MF1='mf1':'trimf',[-7.5 -5 -2.5]
+MF2='mf2':'trimf',[-5 -2.5 0]
+MF3='mf3':'trimf',[-2.5 -2.776e-017 2.5]
+MF4='mf4':'trimf',[0 2.5 5]
+MF5='mf5':'trimf',[2.5 5 7.5]
+
+[Rules]
+1, 5 (1) : 1
+2, 4 (1) : 2
+3, 3 (1) : 2
+4, 2 (1) : 2
+5, 1 (1) : 2
+6, 2 (1) : 2
+7, 3 (1) : 2
+8, 4 (1) : 2
+9, 5 (1) : 2
