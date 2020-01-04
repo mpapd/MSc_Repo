@@ -1,0 +1,68 @@
+-Έχει μοντελοποιηθεί ένα πραγματικό μη γραμμικό σύστημα με χρήση ANFIS 
+και έχει εκπαιδευτεί με την υβριδική μέθοδο Αναδρομικών Ελάχιστον Τετραγώνων - Οπισθοδιάδοσης 
+(Recursive Least Squares - Back Propagation)
+
+*ANFIS 
+
+Ασαφές Νευρωνικό Δίκτυο ANFIS (Adaptive Neuro-Fuzzy Inference Systems)
+
+Το δίκτυο που αντιστοιχεί στο μοντέλο (Takagi-Sugeno-Kang) TSK αναφέρεται και ως δίκτυο ANFIS 
+
+Συνδυάζει την δυνατότητα εκμάθησης των Νευρωνικών Δικτύων με την δυνατότητα εκμάθησης της Fuzzy Λογικής.
+Μοντελοποιούμε τα αβέβαια σενάρια χρησιμοποιόντας Fuzzy Λογική 
+και κάνουμε το Νευρωνικό Δίκτυο να μάθει αυτό το μοντέλο 
+
+*Fuzzy Λογική έχει κάποιους strict κανόνες όπως : if speed of car is slow then do A, if the speed is medium then do B or if the speed is fast then do C" where A, B and C could be actions/tasks, that can be represented by some mathematical value e.g. Apply X amount of pressure on accelerator
+
+** Τέλος ANFIS 
+
+-Φυσικό Σύστημα: Φούρνος Γκαζιού
+Ζήτημα: Μοντελοποίηση σχέσης ανάμεσα στην παροχή γκαζιού (είσοδος u(t) 
+και το παραγόμενο διοξείδιο του άνθρακα (έξοδος y(t))
+
+-genfis1: Παράγει ένα Fuzzy Interface System από τα box-jenkins data 
+	Μεταβλητές:
+		-fuzzySets: ([fuzzySets fuzzySets] 1 για κάθε input ) 
+		-mfType
+		-outType
+		
+-anfis:
+	Μεταβλητές:
+		-epoch_number: Αριθμός επαναλήψεων
+		
+	
+***Βάλε υποσημείωμα ότι πείραξες και τις τιμές και είδες ότι αν αποκλείνει το σύστημα πέφτει πολύ έξω
+
+
+
+-2 inputs:
+	Tests:
+
+		-2 inputs
+		
+		-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
