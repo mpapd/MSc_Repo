@@ -8,7 +8,7 @@ close all;      clear all;      clc;        format long;
 % ΠΑΡΑΜΕΤΡΟΙ ΜΟΝΤΕΛΟΥ - ΕΚΠΑΙΔΕΥΣΗΣ
 fuzzySets = 2;                      % ασαφή σύνολα ανά είσοδο
 epoch_number = 50;                 % αριθμός επαναλήψεων εκπαίδευσης
-initial_learning_rate = 0.1;        % αρχικός ρυθμός εκμάθησης
+initial_learning_rate = 0.5;        % αρχικός ρυθμός εκμάθησης
 mfType = 'gauss2mf';                % είδος συνάρτησης συμμετοχής ('trimf', 'trapmf', 'gbellmf', 'gaussmf', 'gauss2mf', 'pimf' 'dsigmf', 'psigmf')
 outType = 'linear';                 % είδος εξόδου του κανόνα: σταθερή ('constant;) ή γραμμική ('linear')
 %__________________________________________________________________________
