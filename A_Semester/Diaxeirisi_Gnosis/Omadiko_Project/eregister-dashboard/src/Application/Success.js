@@ -30,7 +30,7 @@ export class Success extends Component {
             maxWidth='sm'
           >
             <AppBar title="Success" />
-            <h1>Επιτυχία Δημιουργία αίτησης</h1>
+            <h1>Επιτυχία Δημιουργίας Αίτησης</h1>
             <p>Θα ενημερωθείτε για την πρόοδο της αίτησης σας</p>
             <Button
             color="primary"
