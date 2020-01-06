@@ -1,0 +1,26 @@
+2inputs
+	-fuzzySets=2
+		*gaus2mf: training error = 0.64023
+		*trimf: training error = 0.65720
+	-fuzzySets=3
+		*gaus2mf: training error = 0.62026
+		*trimf: training error = 0.63094
+	-fuzzySets=5
+		*gaus2mf: training error = 0.56509
+		*trimf: training error = 0.55964
+		
+		
+		
+2inputsnofed
+	-fuzzySets=2
+		*gaus2mf: training error = 2.20573
+		*trimf: training error = 2.22638
+	-fuzzySets=3
+		*gaus2mf: training error = 2.16117
+		*trimf: training error = 2.15631
+	-fuzzySets=5
+		*gaus2mf: training error = 2.03920
+		*trimf: training error = 2.05400
+		
+		
+		0.34455
