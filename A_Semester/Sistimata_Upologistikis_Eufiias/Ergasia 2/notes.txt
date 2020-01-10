@@ -1,3 +1,6 @@
+Gia otan se exetasei 
+https://towardsdatascience.com/genetic-algorithm-explained-step-by-step-65358abe2bf
+
 *Συνάρτηση Ποιότητας που αξιολογεί κάθε παραγόμενη λύση
 	να είναι γρήγορη και να αντιπροσωπεύει το πραγματικά πρόβλημα, οχι παραλλαγές από θόρυβο
 
