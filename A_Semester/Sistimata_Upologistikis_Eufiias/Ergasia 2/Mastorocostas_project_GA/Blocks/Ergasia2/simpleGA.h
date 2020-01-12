@@ -17,11 +17,11 @@
 /*--------------------------------------------------------------------------------
 Change the folowing parameters to match your needs */
 #define NPOINTS		12 //25					/* The number of points (villages/cities) */
-#define CITIES_FILE	"Halkidiki_25.txt"	 // "Halkidiki_12.txt"
-#define RESULTS_FILE "results_25.txt"	// "results_12.txt"
-#define POPSIZE		20				/* MEGETHOS PLITHISMOUS Population size */
-#define PXOVER		0.1			/* PITAHNOTITA DIASTAUROSIS Probability of crossover */
-#define PMUTATION	0.05			/* PITHANOTITA METALLAXHS Probability of mutation */
+#define CITIES_FILE	"Halkidiki_12.txt"	 // "Halkidiki_12.txt"
+#define RESULTS_FILE "results_12.txt"	// "results_12.txt"
+#define POPSIZE		1000				/* MEGETHOS PLITHISMOUS Population size */
+#define PXOVER		0.4		/* PITAHNOTITA DIASTAUROSIS Probability of crossover */
+#define PMUTATION	0.1			/* PITHANOTITA METALLAXHS Probability of mutation */
 #define MAXGENS		1000				    /* Maximum number of generations */
 #define DIMENSION	2					/* The dimension of the space (default Euclidean space */
 #define DISLPAYFREQ	50					/* Print to screen each DISLPAYFREQUENCY generations */
