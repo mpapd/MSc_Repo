@@ -1,0 +1,4 @@
+-map_demo
+
+-Για μια query εικόνα, βάλε τα relevant result της εικόνας αυτής
+-Και στα sorted βάλε όλα τα relevant από όλες τις εικόνες
