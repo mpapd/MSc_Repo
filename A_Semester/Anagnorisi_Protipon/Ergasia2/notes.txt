@@ -1,4 +1,29 @@
--map_demo
+###3HOG 
 
--Για μια query εικόνα, βάλε τα relevant result της εικόνας αυτής
--Και στα sorted βάλε όλα τα relevant από όλες τις εικόνες
+
+kmeans = 50 HOG 
+For query s10_01:
+
+Average Precision = 0.3553
+
+
+-----------------
+kmeans = 20
+
+
+For query s10_01:
+
+Average Precision = 0.1282
+
+
+
+------------
+kmeans = 100
+
+
+For query s10_01:
+
+Average Precision = 0.1845
+
+
+###Cosine

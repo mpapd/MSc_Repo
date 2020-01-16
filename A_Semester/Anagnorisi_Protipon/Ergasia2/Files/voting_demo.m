@@ -20,31 +20,25 @@ close all;
 % --- 1 visual word (feature) of cluster 9
 % --- In a similar way are encoded the next 3 images 
 
-% VisWordsPerImage=[
-%     0 0 0 1 1 0 0 2 1 %toy
-%     1 0 1 0 1 0 0 0 0 %horta
-%     0 0 1 0 0 1 1 0 0 %gala
-%     1 1 0 0 0 0 1 0 0 %fatsa
-%     ]
-% 
-% % --- Similar encoding for the query image as shown in pp. 37
-% VisWordsPerQuery=[
-%     1 0 1 0 1 0 0 0 0
-%     ]
-% 
-% % --- Match the query against the dataset
-% Matches = VisWordsPerImage .* VisWordsPerQuery
-% 
-% % --- Find the score per image by horizontal summation
-% ScorePerImage=sum(Matches,2)
+VisWordsPerImage=[
+    0 0 0 1 1 0 0 2 1 %toy
+    1 0 1 0 1 0 0 0 0 %horta
+    0 0 1 0 0 1 1 0 0 %gala
+    1 1 0 0 0 0 1 0 0 %fatsa
+    
+    ];
 
-AllClassesMatFilename='all_classes.mat';
-load(AllClassesMatFilename);
+% --- Similar encoding for the query image as shown in pp. 37
+VisWordsPerQuery=[
+    1 0 1 0 1 0 0 0 0
+    1 0 1 0 1 0 0 0 0
+    1 0 1 0 1 0 0 0 0
+    ];
 
-%kanto gia oles tis eikones tora einai mono gia ena
-query = [transpose(AllClasses{1});transpose(AllClasses{1});transpose(AllClasses{1})];
+% --- Match the query against the dataset
+Matches = VisWordsPerImage .* VisWordsPerQuery;
 
-images = [transpose(AllClasses{1}) ;transpose(AllClasses{2});transpose(AllClasses{3})];
-
-Matches = images .* query;
+% --- Find the score per image by horizontal summation
 ScorePerImage=sum(Matches,2)
+
+

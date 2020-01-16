@@ -27,11 +27,11 @@ AllFeaturesMatFilename='all_features.mat';
 % --- Read filenames, points and features from files (if available)
 if exist(AllFilenamesMatFilename,'file')
     % --- COMMENT OUT THE NEXT 5 LINES TO FORCE CALCULATIONS FROM SCRATCH    
-    %load(AllFilenamesMatFilename);
-    %load(AllPointsMatFilename);
-    %load(AllFeaturesMatFilename);
-    %fprintf('--- Filenames, Points and Features loaded ---\n');
-    %return;
+%     load(AllFilenamesMatFilename);
+%     load(AllPointsMatFilename);
+%     load(AllFeaturesMatFilename);
+%     fprintf('--- Filenames, Points and Features loaded ---\n');
+%     return;
 end
 
 % ===========================================================
@@ -45,7 +45,7 @@ ImagesFilter='*.pgm';
 s=dir(fullfile(ImagesFolder,ImagesFilter));
 AllFilenames=strcat(cellstr(ImagesFolder),filesep,{s.name}');
 % COMMENT OUT THE NEXT LINE IN ORDER TO CALCULATE ALL THE IMAGES 
-AllFilenames=AllFilenames(1:3);
+% AllFilenames=AllFilenames(1:5);
 
 % --- Get the number of images
 Nimages=length(AllFilenames);
