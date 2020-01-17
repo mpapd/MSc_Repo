@@ -20,6 +20,8 @@ AllFeaturesMatFilename='all_features.mat';
 ClusterCentersMatFilename='cluster_centers.mat';
 AllClassesMatFilename='all_classes.mat';
 
+
+
 % ===========================================================
 % LOAD CLUSTERING RESULTS IF ALREADY AVAILABLE
 % ===========================================================
@@ -40,25 +42,27 @@ end
 % --- AllFeatures{1} contains the N1 features of the 1st image
 % --- AllFeatures{2} contains the N2 features of the 2nd image
 % --- etc
-load(AllFeaturesMatFilename);
+load(AllFeaturesMatFilename)
 
 % --- Merge all the features in a single table
 AllFeaturesArr=cell2mat(AllFeatures);
+
+
 
 % ===========================================================
 % APPLY K-MEANS
 % ===========================================================
 
 % --- Define K
-K=50;
+K=100;
 
 % --- Temporarily disable warnings for failing to converge in 1000 iterations
 warning off;
 % --- Apply K-Means clustering
 % --- ClassID is the class where each keypoint belongs
 % --- ClassCenters is the position of each class's center
-fprintf('--- Apply K-Means ---\n');
-[ClassID,ClassCenters]=kmeans(AllFeaturesArr,K,'MaxIter',1000,'Replicates',3,'display','final');
+fprintf('--- Apply K-Means ---\n')
+[ClassID,ClassCenters]=kmeans(AllFeaturesArr,K,'MaxIter',1000,'Replicates',3,'display','final')
 
 
 
