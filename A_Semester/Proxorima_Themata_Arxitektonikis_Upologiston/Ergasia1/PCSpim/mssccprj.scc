@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[pcspim.dsp]
+SCC_Aux_Path = "E:\larus\Software\VSS\Data"
+SCC_Project_Name = "$/Software/SPIM/PCSpim/pcspim", UQAAAAAA
+
+[PCSpim.mak]
+SCC_Aux_Path = "E:\larus\Software\VSS\Data"
+SCC_Project_Name = "$/SPIM/SPIM/PCSpim", GAAAAAAA

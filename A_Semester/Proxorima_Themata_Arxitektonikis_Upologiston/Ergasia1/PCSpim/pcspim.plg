@@ -1,0 +1,67 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: PCSpim - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8E.tmp" with contents
+[
+/nologo /MD /W3 /GX /Zi /D "LITTLEENDIAN" /D "WIN32" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "__STDC__" /FR"Release/" /Fp"Release/pcspim.pch" /YX /Fo"Release/" /Fd"Release/" /FD /D SPIM_VERSION="\"Version Version 7.0 of July 7, 2004\"" /c 
+"C:\Documents and Settings\Administrator\Mis documentos\spim-cache\simulador_practiques_2005\codigospim\Larus\Software\SPIM\src\inst.c"
+"C:\Documents and Settings\Administrator\Mis documentos\spim-cache\simulador_practiques_2005\codigospim\Larus\Software\SPIM\src\run.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8E.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8F.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/pcspim.pdb" /debug /machine:I386 /out:"Release/pcspim.exe" 
+".\Release\BreakpointDlg.obj"
+".\Release\cache.obj"
+".\Release\cacheConfigurationD.obj"
+".\Release\cacheFrm.obj"
+".\Release\cacheInstList.obj"
+".\Release\cacheList.obj"
+".\Release\cacheSettings.obj"
+".\Release\cachestatic.obj"
+".\Release\ConsoleWnd.obj"
+".\Release\data.obj"
+".\Release\display-utils.obj"
+".\Release\inst.obj"
+".\Release\lex.yy.obj"
+".\Release\MainFrm.obj"
+".\Release\mem.obj"
+".\Release\MultiStepDlg.obj"
+".\Release\PCSpim.obj"
+".\Release\PCSpimDoc.obj"
+".\Release\PCSpimView.obj"
+".\Release\Regman.obj"
+".\Release\run.obj"
+".\Release\RunDlg.obj"
+".\Release\SettingsDlg.obj"
+".\Release\SetValueDlg.obj"
+".\Release\spim-utils.obj"
+".\Release\SpimSupport.obj"
+".\Release\StdAfx.obj"
+".\Release\string-stream.obj"
+".\Release\sym-tbl.obj"
+".\Release\syscall.obj"
+".\Release\util.obj"
+".\Release\y.tab.obj"
+".\Release\PCSpim.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP8F.tmp"
+<h3>Output Window</h3>
+Compiling...
+inst.c
+run.c
+C:\Documents and Settings\Administrator\Mis documentos\spim-cache\simulador_practiques_2005\codigospim\Larus\Software\SPIM\src\run.c(269) : warning C4047: '==' : 'int ' differs in levels of indirection from 'void *'
+Linking...
+
+
+
+<h3>Results</h3>
+pcspim.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>
