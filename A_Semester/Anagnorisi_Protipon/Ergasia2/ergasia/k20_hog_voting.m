@@ -54,7 +54,7 @@ end
 %%%Sorted
 %%%Sorting results of the first image s10_01 and keeping track of the
 %%%indexes
-[Sorted,indexes]=sort(ScorePerImage(101,:).','descend');
+[Sorted,indexes]=sort(ScorePerImage(91,:).','descend');
 
 %%Finding top 5
 top5 = zeros(5,2);
@@ -66,7 +66,7 @@ top5(:,2) = indexes([1 2 3 4 5]);
 %%%Contains score per relevant image
 %%%For example: our query is s10_01 so we will fill the array with all the
 %%%scores from s10_01 to s10_10
-Relevant=[ScorePerImage(101,101); ScorePerImage(101,102);ScorePerImage(101,103);ScorePerImage(101,104);ScorePerImage(101,105);ScorePerImage(101,106);ScorePerImage(101,107);ScorePerImage(101,108);ScorePerImage(101,109);ScorePerImage(101,110)];
+Relevant=[ScorePerImage(91,91); ScorePerImage(91,92);ScorePerImage(91,93);ScorePerImage(91,94);ScorePerImage(91,95);ScorePerImage(91,96);ScorePerImage(91,97);ScorePerImage(91,98);ScorePerImage(91,99);ScorePerImage(91,100)];
 
 
 % % --- Calculate the Precision

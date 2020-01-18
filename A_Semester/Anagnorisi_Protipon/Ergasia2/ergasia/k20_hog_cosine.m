@@ -50,33 +50,31 @@ end
 
 %%%Experimental Results
 %%Cosine
-%%Opos blepeis sthn diafaneia 32, exei 2 queries 
-%%Pairneis ta score ton duo kai ta anatheteis sta x kai y kai bgazeis to
-%%cosine similarity
-cosineResults = zeros(400,maxDimensions);
+cosineResults = zeros(length(AllClasses),400);
 for i = 1:length(images)
     x=[images(i,:)];
-    for j = 1:length(images)
-        y=[images(j,:)];
-        xy   = dot(x,y);
-        nx   = norm(x);
-        ny   = norm(y);
-        nxny = nx*ny;
-        Cs   = xy/nxny;
-        cosineResults(i,j) = Cs;
-
-    end
+%     for j = 1:length(images)
+%         y=[images(j,:)];
+%         xy   = dot(x,y);
+%         nx   = norm(x);
+%         ny   = norm(y);
+%         nxny = nx*ny;
+%         Cs   = xy/nxny;
+%         cosineResults(i,:) = Cs;
+%         
+%     end
+    cosineResults(i,:) = 1 - pdist2(x,images,'cosine');
 end
 
 
-[SortedCos,indexesCos]=sort(cosineResults(101,:).','descend');
+[SortedCos,indexesCos]=sort(cosineResults(91,:).','descend');
 
 %%Finding top 5
 top5 = zeros(5,2);
 top5(:,1) = SortedCos([1 2 3 4 5]);
 top5(:,2) = indexesCos([1 2 3 4 5]);
 
-RelevantCos=[cosineResults(101,101); cosineResults(101,102);cosineResults(101,103);cosineResults(101,104);cosineResults(101,105);cosineResults(101,106);cosineResults(101,107);cosineResults(101,108);cosineResults(101,109);cosineResults(101,110)];
+RelevantCos=[cosineResults(91,91); cosineResults(91,92);cosineResults(91,93);cosineResults(91,94);cosineResults(91,95);cosineResults(91,96);cosineResults(91,97);cosineResults(91,98);cosineResults(91,99);cosineResults(91,100)];
 
 
 % % --- Calculate the Precision for Cosine
