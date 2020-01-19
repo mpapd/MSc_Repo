@@ -4,7 +4,7 @@ Array_A: .word 1,1,1,1,2,2,2,2
 Array_B: .word 3,3,3,3,4,4,4,4
 .text
 .globl start
-start: li $8, 5
+start: li $8, 100
 ext_loop: la $2, Array_A
 la $3, Array_B
 li $6,0
