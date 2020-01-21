@@ -1,0 +1,22 @@
+1)
+a) 560 Cycles CPI = 2.082
+b) Theoria
+
+2) 
+a) 541 cycles
+	CPI = 2.011
+	kane sugrisi kai ta duo kai bgale pososto
+	(oso ligoteroi toso kalutero)
+b)theoria
+
+3)
+a) 
+bale entolh apo kato apo to bnez
+534 cycles
+cpi = 1.907 kai kane sugrisi 
+b) o a giati oso ligoteroi toso kalutero 
+
+4)meiosh ton raw stalls
+molis breis to kalutero sigrineis cpi allaxe kodika
+
+5)thelei allages 
